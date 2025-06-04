@@ -21,7 +21,7 @@ paths:
                   description: The customer's name
                 customerEmail:
                   type: string
-                  description: The customer's name
+                  description: The customer's email
                 customerPhone:
                   type: string
                   description: The customer's phone number
