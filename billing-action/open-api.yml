@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Ranhill Chatbot Solution
+  title: Chatbot Solution
   version: 1.0.0
-  description: Open API to be use by chatbot agent to solve Ranhill customer account
+  description: Open API to be use by chatbot agent to solve customers account
 paths:
   /check-account/{accountNum}:
     get:

@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
-  title: Ranhill Chatbot Solution
+  title: Chatbot Solution
   version: 1.0.0
-  description: Open API to be use by chatbot agent to solve Ranhill customer account
+  description: Open API to be use by chatbot agent to solve customers account
 paths:
   /send-complaint:
     post:
       operationId: sendComplaint
-      summary: Send complaint to Ranhill
-      description: Send complaint to Ranhill. You need to ask politely for the required information one by one, start by customer name and then following the requirement order. For complaint type, you must provide options and ask user to choose the digit. The options are 1. Billing Enquiry, 2. Damage Enquiry and 3. Leakage. Please ask customer to check all the required information by return it to them and then ask they permission to submit the complaint.
+      summary: Send complaint  
+      description: You need to ask politely for the required information one by one, start by customer name and then following the requirement order. For complaint type, you must provide options and ask user to choose the digit. The options are 1. Billing Enquiry, 2. Damage Enquiry and 3. Leakage. Please ask customer to check all the required information by return it to them and then ask they permission to submit the complaint.
       requestBody:
         required: true
         content:
