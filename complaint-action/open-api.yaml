@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Ranhill Chatbot Solution
+  version: 1.0.0
+  description: Open API to be use by chatbot agent to solve Ranhill customer account
+paths:
+  /send-complaint:
+    post:
+      operationId: sendComplaint
+      summary: Send complaint to Ranhill
+      description: Send complaint to Ranhill. You need to ask politely for the required information one by one, start by customer name and then following the requirement order. For complaint type, you must provide options and ask user to choose the digit. The options are 1. Billing Enquiry, 2. Damage Enquiry and 3. Leakage. Please ask customer to check all the required information by return it to them and then ask they permission to submit the complaint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customerName:
+                  type: string
+                  description: The customer's name
+                customerEmail:
+                  type: string
+                  description: The customer's name
+                customerPhone:
+                  type: string
+                  description: The customer's phone number
+                complaintType:
+                  type: string
+                  description: The customer complaint type. The options for complaint type will be 1. Billing Enquiry. 2. Damage Enquiry. 3. Leakage
+                complaintDesc:
+                  type: string
+                  description: The customer complaint description
+                complaintSubmit:
+                  type: boolean
+                  description: Return all the required information and ask the user whether they want to submit the complaint or not. If yes, submit the complaint
+              required:
+                - customerName
+                - customerEmail
+                - customerPhone
+                - complaintType
+                - complaintDesc
+                - complaintSubmit
+      responses:
+        "200":
+          description: Complaint sent successfully. Please ask user to check their email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  complaintId:
+                    type: string
+                    description: Unique Id to track the status of the complaint
+        "400":
+          description: Bad request. One or more required fields are missing or invalid.

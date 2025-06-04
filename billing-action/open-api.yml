@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Ranhill Chatbot Solution
+  version: 1.0.0
+  description: Open API to be use by chatbot agent to solve Ranhill customer account
+paths:
+  /check-account/{accountNum}:
+    get:
+      summary: Checking account status
+      description: Based on provided account number, return account information like customer name, account status. If account status is overdue, return total amount overdue and then you must ask customer if the customer want to make payment
+      operationId: checkAccountStatus
+      parameters:
+        - name: accountNum
+          in: path
+          description: Customer account number
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Get customer account status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customerName:
+                    type: string
+                    description: This is customer name
+                  accountStatus:
+                    type: string
+                    description: This is customer account status. If overdue, return total amount overdue and you must ask customer to make the payment
+                  totalAmountOverdue:
+                    type: string
+                    description: This is customer account total amount overdue
+  /generate-payment-link/{accountNum}:
+    get:
+      summary: Generate payment link to customer where account status is overdue
+      description: Generate payment link for customer where account status is overdue
+      operationId: generatePaymentLink
+      parameters:
+        - name: accountNum
+          in: path
+          description: Customer account number
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Payment link generated succefully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  generatedLink:
+                    type: string
+                    description: This is payment gateway link
+        "400":
+          description: Bad request. One or more required fields are missing or invalid.
