@@ -49,9 +49,9 @@ def invoke_bedrock_agent(user_input):
 
 
 # Streamlit app setup
-st.set_page_config(page_title="RANHILL POC", page_icon="💬")
+st.set_page_config(page_title="Chatbot Agent POC", page_icon="💬")
 
-st.title("💬 RANHILL Chatbot POC")
+st.title("💬 Chatbot Agent POC")
 
 
 if 'chat_history' not in st.session_state:
